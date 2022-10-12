@@ -1,0 +1,75 @@
+import java.util.Scanner;
+import java.util.ArrayList;
+import java.util.List;
+
+public class Trycatch_Act {
+    public static void main(String[] args) {
+        Scanner sc = new Scanner(System.in);
+        List<String> Flowers = new ArrayList<String>();
+
+
+        
+        System.out.println("#======================================");
+        System.out.println("#          Choose an index            #");
+        System.out.println("#                                     #");
+        System.out.println("#            [0,1,2,3,4]              #");
+        System.out.println("#                                     #");
+        System.out.println("#======================================");
+        System.out.print("\nEnter your choosen index:");
+        int input = sc.nextInt();
+    //String FlowersName;
+    //String FlowersTypeBrand;
+    //VariableType FlowersColor;
+
+        Flowers<String> p1 = new Flowers<String>();
+        p1.setFlowersName("Daisy"); 
+        p1.setFlowersColor("Violet");
+        p1.setFlowersType("Marguerites");
+        Flowers.add("\"" + p1.getFlowersName() + "\"" + " It is a" + p1.getFlowersColor() + " colored "+ p1.getFlowersType());
+    
+        Flowers<String> p2 = new Flowers<String>();
+        p2.setFlowersName("Rose"); 
+        p2.setFlowersColor("Red");
+        p2.setFlowersType("Hybrid");
+        Flowers.add("\"" + p2.getFlowersName() + "\"" + " It is a" + p2.getFlowersColor() + " colored "+ p2.getFlowersType());
+
+        Flowers<String> p3 = new Motorcycle<String>();
+        p3.setFlowersName("Sampaguita"); 
+        p3.setFlowersColor("Pink");
+        p3.setFlowersType("Single Petal");
+        Flowers.add("\"" + p3.getFlowersName() + "\"" + " It is a" + p3.getFlowersColor() + " colored "+ p3.getFlowersType());
+   
+        Flowers<String> p4 = new Motorcycle<String>();
+        p4.setMotorcycleName("Orchids"); 
+        p4.setMotorcycleColor("Yellow");
+        p4.setMotorcycleBrand("Dendrobium Orchids");
+        Flowers.add("\"" + p4.getFlowersName() + "\"" + " It is a" + p4.getFlowersColor() + " colored "+ p4.getFlowersType());
+
+        Flowers<String> p5 = new Motorcycle<String>();
+        p5.setMotorcycleName("Bougainvillea"); 
+        p5.setMotorcycleColor("Orange");
+        p5.setMotorcycleBrand("Barbara Karst");
+        Flowers.add("\"" + p5.getFlowersName() + "\"" + " It is a" + p5.getFlowersColor() + " colored "+ p5.getFlowersType()); 
+
+
+        try {
+            if (input < 0) {
+                sc.close();
+                throw new FlowersException("Invalid input!! TRY ENTERING A POSITIVE NUMBER");
+            }
+            if (input > 5) {
+                sc.close();
+                throw new FlowersException("Invalid input!! TRY ENTERING A NUMBER NOT EXCEEDS FIVE");
+            }
+
+            System.out.println("Index number: " + input);
+            System.out.println(Flowers.get(input));
+
+        } catch (FlowersException e) {
+            System.out.println(e.getMessage());
+        }
+
+        sc.close();
+
+    }
+}
